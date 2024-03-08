@@ -3,7 +3,8 @@
 namespace App\Http\Requests\FormRequest\Technology;
 
 use Illuminate\Foundation\Http\FormRequest;
-
+//helpers
+use Illuminate\Support\Facades\Auth;
 class UpdateTechnologyRequest extends FormRequest
 {
     /**
@@ -11,7 +12,7 @@ class UpdateTechnologyRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return Auth::check();
     }
 
     /**
