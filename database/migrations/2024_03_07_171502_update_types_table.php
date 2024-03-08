@@ -16,7 +16,9 @@ return new class extends Migration
 
                 $table->foreign('type_id')
                     ->references('id')
-                    ->on('types'); // Assicurati che il nome della tabella sia 'types' e non 'tipes'
+                    ->on('types')
+                    ->onUpdate('cascade')
+                    ->onDelete('set Null'); // Assicurati che il nome della tabella sia 'types' e non 'tipes'
             });
         }
 
