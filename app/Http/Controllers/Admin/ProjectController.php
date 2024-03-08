@@ -10,8 +10,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
 //Form request
 use Illuminate\Http\Request;
-use App\Http\Requests\FormRequest\StoreProjectRequest;
-use App\Http\Requests\FormRequest\UpdateProjectRequest;
+use App\Http\Requests\FormRequest\Project\StoreProjectRequest;
+use App\Http\Requests\FormRequest\Project\UpdateProjectRequest;
 class ProjectController extends Controller
 {
     /**

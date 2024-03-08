@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Requests\FormRequest;
+namespace App\Http\Requests\FormRequest\Technology;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateProjectRequest extends FormRequest
+class UpdateTechnologyRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -22,13 +22,7 @@ class UpdateProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|Max:64',
-            'description' => 'required|Max:4064', 
-            'image' => 'nullable|Max:1024|url', 
-            'date' => 'nullable|Max:64|', 
-            // 'slug' => 'required', 
-            'type_id' => 'required|exists:types,id' 
-
+            //
         ];
     }
 }
