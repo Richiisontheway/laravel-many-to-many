@@ -23,7 +23,7 @@ class UpdateProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|Max:64',
+            'title' => 'required|string|Max:255',
             'description' => 'required|Max:4064', 
             'image' => 'nullable|Max:1024|url', 
             'date' => 'nullable|Max:64|', 

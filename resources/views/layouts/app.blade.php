@@ -24,10 +24,13 @@
                                 <a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard</a>
                             </li> --}}
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('admin.projects.index')}}">vai a project </a>
+                                <a class="nav-link" href="{{route('admin.projects.index')}}">vai a projects </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('admin.types.index')}}">vai ai types </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('admin.technologies.index')}}">vai alle technologies </a>
                             </li>
                         </ul>
                         <form method="POST" action="{{ route('logout') }}">

@@ -23,7 +23,7 @@ class UpdateTechnologyRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'required|string|Max:255',
         ];
     }
 }
