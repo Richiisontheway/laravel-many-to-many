@@ -27,7 +27,7 @@
                     @csrf
                         <div class="mb-3">
                             <label for="title" class="form-label">Titolo <span class=" text-danger ">*</span></label>
-                            <input type="text" value="{{old('title')}}"   class="form-control" id="title" name="title" placeholder="Inserisci il titolo" maxlength="64" required>
+                            <input type="text" value="{{old('title')}}"class="form-control" id="title" name="title" placeholder="Inserisci il titolo" maxlength="64" required>
                         </div>
                         <div class="mb-3">
                             <label for="image" class="form-label">SRC</label>
