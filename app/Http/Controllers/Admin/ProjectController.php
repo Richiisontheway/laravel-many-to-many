@@ -13,6 +13,8 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Requests\FormRequest\Project\StoreProjectRequest;
 use App\Http\Requests\FormRequest\Project\UpdateProjectRequest;
+use Illuminate\Contracts\Support\ValidatedData;
+
 class ProjectController extends Controller
 {
     /**
@@ -34,7 +36,8 @@ class ProjectController extends Controller
     public function create()
     {
         $types = Type::all();
-        return view('admin.projects.create', compact('types'));
+        $technologies = Technology::all();
+        return view('admin.projects.create', compact('types','technologies'));
     }
 
     /**
@@ -52,7 +55,10 @@ class ProjectController extends Controller
         $project->slug = $validatedData['title'];
         $project->type_id = $validatedData["type_id"];
         $project->save();
-
+        
+        foreach($validatedData['technologies'] as $singleTechnologyId){
+            $project->technologies()->attach($singleTechnologyId);
+        }
          return redirect()->route('admin.projects.show', ['project' => $project->slug]);
     }
 

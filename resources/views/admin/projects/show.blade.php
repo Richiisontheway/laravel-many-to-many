@@ -28,7 +28,7 @@
                     </h2>
                     @forelse ($project->technologies as $technology)
                         <a href="{{ route('admin.technologies.show' , ['technology' => $technology->id]) }}" class="btn btn-primary">
-                            {{$project->title}}
+                            {{$technology->title}}
                         </a>
                     @empty
                         <h5>
@@ -40,6 +40,9 @@
                     <img src="{{$project->image}}" alt="">
                 </div>
                 <p>
+                    <h2>
+                        descrizione
+                    </h2>
                     {{$project->description}}
                 </p>
                 <p>

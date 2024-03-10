@@ -53,6 +53,26 @@
                             <label for="date" class="form-label">Data</label>
                             <input class="w-25 form-control"  type="date" class="form-control" id="date" name="date" placeholder="Inserisci il titolo" >
                         </div>
+                        <div class="mb-3">
+                            <label class="form-label">Technology</label>
+
+                            <div>
+                                @foreach ($technologies as $technology)
+                                    <div class="form-check form-check-inline">
+                                        <input
+                                            class="form-check-input"
+                                            type="checkbox"
+                                            id="technology-{{$technology->id}}"
+                                            {{-- per dire al server che si può avere un array da questo gruppo di dati metto [] alla fine del nome --}}
+                                            name="technologies[]"
+                                            value="{{$technology->id}}">
+                                        <label class="form-check-label" for="technology-{{$technology->id}}">
+                                            {{ $technology->title }}
+                                        </label>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
                         <div>
                             <button type="submit" class="btn btn-success w-100">
                                 + Aggiungi
