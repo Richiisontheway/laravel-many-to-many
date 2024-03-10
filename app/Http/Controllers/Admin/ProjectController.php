@@ -95,6 +95,7 @@ class ProjectController extends Controller
         $validationData['slug'] = $slug;
         $project->updateOrFail($validationData);
         if (isset($validationData['technologies'])) {
+            //il sync cancella e aggiorna tutto insieme
             $project->technologies()->sync($validationData['technologies']);
         }
         else {
