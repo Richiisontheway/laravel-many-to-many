@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('page-title', 'Dashboard')
+@section('page-title', $project->title)
 
 @section('main-content')
     <div class="row">
@@ -12,7 +12,30 @@
                     </h1>
                     <br>
                 </div>
-                
+                <div>
+                    @if ($project->type != null)
+                        <h2>
+                            Type
+                            <a href="{{ route('admin.types.show' , ['type' => $project->type->id]) }}" class="btn btn-primary">
+                                {{$project->type->title}}
+                            </a>
+                        </h2>
+                    @endif
+                </div>
+                <div>
+                    <h2>
+                        Technology: 
+                    </h2>
+                    @forelse ($project->technologies as $technology)
+                        <a href="{{ route('admin.technologies.show' , ['technology' => $technology->id]) }}" class="btn btn-primary">
+                            {{$project->title}}
+                        </a>
+                    @empty
+                        <h5>
+                            None
+                        </h5>
+                    @endforelse
+                </div>
                 <div>
                     <img src="{{$project->image}}" alt="">
                 </div>

@@ -15,7 +15,7 @@
                     <h2 class="text-center">
                         Tutti i Progetti appartenenti alla categoria: {{$type->title}}
                     </h2>
-                    <ul>
+                    <ul> 
                                 {{-- prende la funzione dentro il model Type --}}
                         @foreach ($type->projects as $project)
                             <li>
@@ -24,6 +24,7 @@
                                 </a>
                             </li>
                         @endforeach
+                        
                     </ul>
                 </div>
             </div>

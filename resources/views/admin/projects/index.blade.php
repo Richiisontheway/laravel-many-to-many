@@ -45,9 +45,9 @@
                                     </td>
                                     <td>
                                         @forelse ($singleAttribute->technologies as $technology)
-                                            <div class="badge rounded-pill text-bg-primary">>
+                                            <a href="{{route('admin.technologies.show',['technology' => $technology->id])}}" class="badge rounded-pill text-bg-primary">>
                                                 {{$technology->title}}
-                                            </div>
+                                            </a>
                                         @empty    
                                             -
                                         @endforelse

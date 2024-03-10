@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('page-title', 'show|{{$technology->title}}')
+@section('page-title', 'show|')
 
 @section('main-content')
     <div class="row">
@@ -13,13 +13,13 @@
                 </div>
                 <div>
                     <h2 class="text-center">
-                        Tutti i Progetti appartenenti alla categoria: {{$technology->title}}
+                        Tutti i Progetti appartenenti alla technologia: {{$technology->title}}
                     </h2>
                     <ul>
                                 {{-- prende la funzione dentro il model Technology --}}
                         @foreach ($technology->projects as $project)
                             <li>
-                                <a href="{{route('admin.projects.show', ['project' => $project->slug])}}">
+                                <a href="{{route('admin.projects.show', ['project' => $project->id])}}">
                                     {{$project->title}}
                                 </a>
                             </li>

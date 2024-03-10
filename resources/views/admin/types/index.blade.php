@@ -34,7 +34,7 @@
                                     <td>{{$item->title}}</td>
                                     <td>{{$item->date}}</td>
                                     <td>
-                                        <a href="{{ route('admin.types.show' , ['type' => $item->slug]) }}" class="btn btn-primary">
+                                        <a href="{{ route('admin.types.show' , ['type' => $item->id]) }}" class="btn btn-primary">
                                             Show
                                         </a>
                                         <a href="{{route('admin.types.edit' , ['type' => $item->id])}}" class="btn btn-warning">
