@@ -55,9 +55,35 @@
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">descrizione <span class="text-danger">*</span></label>
-                    <textarea name="description" id="description"  rows="3" required maxlength="4064">{{$project->description}}</textarea>
+                    <textarea class="form-control" name="description" id="description"  rows="3" required maxlength="4064">{{$project->description}}</textarea>
                 </div>
+                <div class="mb-3">
+                    <label class="form-label">Technology</label>
 
+                        <div>
+                            @foreach ($technologies as $technology)
+                                <div class="form-check form-check-inline">
+                                    <input
+                                        {{-- (project->technologies si riferisce al model) per vedere checkati le cose giuste --}}
+                                        @if ($errors->any())
+                                            {{-- Faccio le verifiche sull'old --}}
+                                            {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}
+                                        @else
+                                            {{ $project->technologies->contains($technology->id)  ? 'checked' : ''}}
+                                        @endif
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        id="technology-{{$technology->id}}"
+                                        {{-- per dire al server che si può avere un array da questo gruppo di dati metto [] alla fine del nome --}}
+                                        name="technologies[]"
+                                        value="{{$technology->id}}">
+                                    <label class="form-check-label" for="technology-{{$technology->id}}">
+                                        {{ $technology->title }}
+                                    </label>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
                 <div>
                     <button type="submit" class="btn btn-success w-100">
                         Aggiorna
