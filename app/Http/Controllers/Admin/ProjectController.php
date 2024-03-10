@@ -93,9 +93,13 @@ class ProjectController extends Controller
         $project = Project::where('slug', $slug)->firstOrFail();
         $slug = Str::slug($validationData['title']);
         $validationData['slug'] = $slug;
-        
-        
         $project->updateOrFail($validationData);
+        if (isset($validationData['technologies'])) {
+            $project->technologies()->sync($validationData['technologies']);
+        }
+        else {
+            $project->technologies()->detach();
+        }
         return redirect()->route('admin.projects.show', ['project' => $project->slug]);
     }
 
