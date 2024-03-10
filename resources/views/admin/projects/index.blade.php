@@ -44,11 +44,13 @@
                                         </a>
                                     </td>
                                     <td>
-                                        @foreach ($technologies as $technology)
+                                        @forelse ($singleAttribute->technologies as $technology)
                                             <div class="badge rounded-pill text-bg-primary">>
                                                 {{$technology->title}}
                                             </div>
-                                        @endforeach
+                                        @empty    
+                                            -
+                                        @endforelse
                                     </td>
                                     <td>{{$singleAttribute->date}}</td>
                                     <td>
