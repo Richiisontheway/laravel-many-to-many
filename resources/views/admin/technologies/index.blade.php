@@ -40,9 +40,17 @@
                                         <a href="{{route('admin.technologies.edit' , ['technology' => $technology->id])}}" class="btn btn-warning">
                                             Edit
                                         </a>
-                                        <a href="" class="btn btn-danger">
-                                            Delete
-                                        </a>
+                                        <form
+                                            onsubmit="return confirm('Sei sicuro di voler eliminare questo progetto?');"
+                                            class="d-inline-block"
+                                            action="{{ route('admin.technologies.destroy', ['technology' => $technology->id]) }}"
+                                            method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">
+                                                Elimina
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
