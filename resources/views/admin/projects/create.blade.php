@@ -60,6 +60,7 @@
                                 @foreach ($technologies as $technology)
                                     <div class="form-check form-check-inline">
                                         <input
+                                            {{ old('technologies') !== null && in_array($technology->id, ) ? 'checked' : ''}}
                                             class="form-check-input"
                                             type="checkbox"
                                             id="technology-{{$technology->id}}"
