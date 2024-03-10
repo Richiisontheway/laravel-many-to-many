@@ -79,7 +79,8 @@ class ProjectController extends Controller
     {
         $types = Type::all();
         $project = Project::where('slug', $slug)->firstOrFail();
-        return view('admin.projects.edit', compact('project','types'));
+        $technologies = Technology::all();
+        return view('admin.projects.edit', compact('project','types','technologies'));
     }
 
     /**
