@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 //model
 use App\Models\Project;
 use App\Models\Type;
+use App\Models\Technology;
 
 use App\Http\Controllers\Controller;
 //helper
@@ -19,8 +20,12 @@ class ProjectController extends Controller
      */
     public function index()
     {
+        //variabile & compact devono combaciare
         $project = Project::all();
-        return view('admin.projects.index', compact('project'));
+        $technologies = Technology::all();
+        //ho notato solo ora che il compact project è al singolare...non lo cambio adesso perché al 100% 
+        //mi dimenticherei delle cose
+        return view('admin.projects.index', compact('project','technologies'));
     }
 
     /**

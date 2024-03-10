@@ -24,6 +24,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Titolo</th>
                                 <th scope="col">Tipo</th>
+                                <th scope="col">Technologia</th>
                                 <th scope="col">Date</th>
                                 <th scope="col">Azioni</th>
                             </tr>
@@ -34,13 +35,20 @@
                                     <th scope="row">{{$singleAttribute->id}}</th>
                                     <td>{{$singleAttribute->title}}</td>
                                     <td>
-                                        {{-- pre farlo diventare un link la rotta show ha bisogno di un dato
+                                        {{-- per farlo diventare un link la rotta show ha bisogno di un dato
                                             id per funzionare e lo prendiamo fando $var->type(che ci prende la funzione dentro il model Project)
                                             ->per l'id
                                          --}}
                                         <a href="{{route('admin.types.show', ['type' => $singleAttribute->type->id]) }}">
                                             {{$singleAttribute->type->title}}
                                         </a>
+                                    </td>
+                                    <td>
+                                        @foreach ($technologies as $technology)
+                                            <div class="badge rounded-pill text-bg-primary">>
+                                                {{$technology->title}}
+                                            </div>
+                                        @endforeach
                                     </td>
                                     <td>{{$singleAttribute->date}}</td>
                                     <td>
